@@ -2,3 +2,6 @@
   display: flex;
   flex: 1;
 }
+md-sidenav {
+  width: 320px;
+}

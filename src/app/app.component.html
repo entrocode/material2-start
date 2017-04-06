@@ -1,3 +1,29 @@
-<h1>
-  {{title}}
-</h1>
+<div fxLayout="column" fxFlex>
+
+  <md-toolbar color="primary">
+    <span>Angular Material</span>
+  </md-toolbar>
+
+  <md-sidenav-container fxFlex>
+    <md-sidenav mode="side" opened>
+
+      <md-tab-group>
+        <md-tab label="Users">
+          <md-nav-list>
+            <md-list-item *ngFor="let user of users">
+              <span>{{user.name}}</span>
+            </md-list-item>
+          </md-nav-list>
+        </md-tab>
+        <md-tab label="Settings">
+          <span>Settings</span>
+        </md-tab>
+      </md-tab-group>
+
+    </md-sidenav>
+    <div class="content">
+      Page Content
+    </div>
+  </md-sidenav-container>
+
+</div>
