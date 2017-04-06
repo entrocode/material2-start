@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {MdIconRegistry, MdDialog} from '@angular/material';
-import {DomSanitizer} from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { MdIconRegistry, MdDialog } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { DialogComponent } from './dialog/dialog.component';
 
 @Component({
@@ -81,6 +81,11 @@ export class AppComponent {
   }
 
   private openAdminDialog() {
-    this.dialog.open(DialogComponent);
+    this.dialog.open(DialogComponent).afterClosed()
+      .filter(result => !!result)
+      .subscribe(user => {
+        this.users.push(user);
+        this.selectedUser = user;
+      });
   }
 }
